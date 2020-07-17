@@ -1,0 +1,13 @@
+ --- # Loop Playbook
+ - hosts: demo
+   user: ansible
+   become: yes
+   connection: ssh
+   tasks:
+     - name: Install apache for debian
+       command: apt-get -y install apache2
+       when: ansible_os_family == "Debian"
+     - name: Install apache for redhat
+       command: yum install httpd -y
+       when: ansible_os_family == "RedHat"
+

@@ -1,0 +1,13 @@
+--- #My first YAML playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+     - name: Install HTTP on centos 7
+       action: yum name=httpd  state=installed
+       notify: restart HTTPD #is called only if action is ran & success
+  handlers:
+     - name: restart HTTPD #has to match notify name. Otherwise error
+       action: service name=httpd state=restarted
+

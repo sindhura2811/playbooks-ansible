@@ -1,0 +1,10 @@
+--- #My first YAML playbook
+- hosts: demo
+  # extra items in target 
+  user: ansible
+  become: yes        #yes or no
+  #connection is by default ssh. 
+  connection: ssh    #ssh or paramico
+  #By default facts will be gathered 
+  gather_facts: yes  #yes or no
+
